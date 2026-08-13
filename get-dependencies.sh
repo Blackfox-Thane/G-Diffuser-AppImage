@@ -8,6 +8,7 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm cmake \
     ninja         \
+    gcc           \
     glew          \
     zlib          \
     bzip2         \

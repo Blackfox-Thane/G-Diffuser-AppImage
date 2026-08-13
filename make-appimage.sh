@@ -12,7 +12,7 @@ export ICON=https://github.com/Zorkats/G-Diffuser/blob/main/assets/branding/gdif
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun ./AppDir/bin/G-Diffuser
+quick-sharun ./AppDir/bin/G-Diffuser /usr/bin/zenity
 
 # Additional changes can be done in between here
 

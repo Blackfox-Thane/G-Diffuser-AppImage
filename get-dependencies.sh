@@ -40,7 +40,13 @@ echo "$VERSION" > ~/version
 mkdir -p ./AppDir/bin
 cd G-Diffuser
 
-cmake -S . -Bbuild/x64-linux -GNinja -DCMAKE_BUILD_TYPE=Release
+cmake -S . -Bbuild/x64-linux  \
+-GNinja \
+-DCMAKE_BUILD_TYPE=Release \
+-DASSET_REVISION=rev0 \
+-DASSET_VERSION=us \
+-DEXPANSION_KIT=1
+
 cmake --build build/x64-linux --target G-Diffuser
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1

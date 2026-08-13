@@ -1,0 +1,12 @@
+[Desktop Entry]
+StartupWMClass=G-Diffuser
+Name=G-Diffuser
+Type=Application
+Terminal=false
+Icon=gdiffuser-icon
+Exec=G-Diffuser
+GenericName=G-Diffuser
+Categories=Game;
+X-AppImage-Name=G-Diffuser
+X-AppImage-Version=v1.0.1
+X-AppImage-Arch=x86_64

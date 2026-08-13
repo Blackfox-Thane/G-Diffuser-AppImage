@@ -39,6 +39,7 @@ echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
 cd G-Diffuser
+mkdir -p build/x64-linux
 
 cmake -S . -Bbuild/x64-linux  \
 -GNinja \
@@ -46,6 +47,8 @@ cmake -S . -Bbuild/x64-linux  \
 -DASSET_REVISION=rev0 \
 -DASSET_VERSION=us \
 -DEXPANSION_KIT=1
+
+cmake --build build/x64-linux --target assets
 
 cmake --build build/x64-linux --target G-Diffuser
 

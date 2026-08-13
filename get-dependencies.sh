@@ -30,10 +30,20 @@ get-debloated-pkgs --add-common --prefer-nano
 
 # If the application needs to be manually built that has to be done down here
 
-git clone --recursive https://github.com/Zorkats/G-Diffuser.git
-cd ./G-Diffuser
-cmake -S . -B build/x64-linux -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build/x64-linux --target G-Diffuser
+echo "Getting app..."
+echo "---------------------------------------------------------------"
+case "$ARCH" in # they use X64 and ARM64 for the zip links
+	x86_64)  zip_arch=Linux-X64-Release;;
+	aarch64) zip_arch=Linux-ARM64-Release;;
+esac
+TAR_GZ_LINK=$(wget -qO- https://github.com/Zorkats/G-Diffuser/releases \
+      | sed 's/[()",{} ]/\n/g' | grep -o -m 1 "https.*G-Diffuser.*$zip_arch.tar.gz")
+echo "$ZIP_LINK" | awk -F'/' '{gsub(/^v/, "", $(NF-1)); print $(NF-1); exit}' > ~/version
+wget --retry-connrefused --tries=30 "$TAR_GZ_LINK" -O /tmp/app.tar.gz
+
+mkdir -p ./AppDir/bin
+bsdtar -xvf /tmp/app.tar.gz -C .
+bsdtar -xvf ./G-Diffuser-v1.*-linux-x64.tar.gz -C ./AppDir/bin
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #

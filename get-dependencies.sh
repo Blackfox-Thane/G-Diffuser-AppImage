@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm \
+sudo pacman -Syu --noconfirm \
     cmake \
     ninja         \
     gcc           \
@@ -28,25 +28,31 @@ pacman -Syu --noconfirm \
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+./get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
-#make-aur-package zenity-rs-bin
+make-aur-package zenity-rs-bin
 
 # If the application needs to be manually built that has to be done down here
 
 echo "Getting app for G-Diffuser..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/Zorkats/G-Diffuser"
+
 VERSION="$(git ls-remote --tags --sort="v:refname" "$REPO" | tail -n1 | sed 's/.*\///; s/\^{}//')"
-git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO" ./G-Diffuser
+git clone --recursive "$REPO" ./G-Diffuser
 echo "$VERSION" > ~/version
 
+mkdir -p ./AppDir/bin
+cd G-Diffuser
+
 cmake -S . \
-    -Bbuild \
+    -Bbuild/x64-linux \
     -GNinja \
-    -DCMAKE_BUILD_TYPE=Release
-cmake --build build --target G-Diffuser
+    -DCMAKE_BUILD_TYPE=Release \
+	-DNON_PORTABLE=On
+
+cmake --build build/x64-linux --target G-Diffuser
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #

@@ -38,7 +38,7 @@ case "$ARCH" in # they use X64 and ARM64 for the zip links
 esac
 TAR_GZ_LINK=$(wget -qO- https://github.com/Zorkats/G-Diffuser/releases \
       | sed 's/[()",{} ]/\n/g' | grep -o -m 1 "https.*G-Diffuser.*$zip_arch.tar.gz")
-echo "$ZIP_LINK" | awk -F'/' '{gsub(/^v/, "", $(NF-1)); print $(NF-1); exit}' > ~/version
+echo "$TAR_GZ_LINK" | awk -F'/' '{gsub(/^v/, "", $(NF-1)); print $(NF-1); exit}' > ~/version
 wget --retry-connrefused --tries=30 "$TAR_GZ_LINK" -O /tmp/app.tar.gz
 
 mkdir -p ./AppDir/bin

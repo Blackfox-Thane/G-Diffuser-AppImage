@@ -29,6 +29,8 @@ get-debloated-pkgs --add-common --prefer-nano
 
 # If the application needs to be manually built that has to be done down here
 
+git clone --recursive https://github.com/Zorkats/G-Diffuser.git
+cd ./G-Diffuser
 cmake -S . -B build/x64-linux -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build/x64-linux --target G-Diffuser
 

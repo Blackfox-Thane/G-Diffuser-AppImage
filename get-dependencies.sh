@@ -32,10 +32,7 @@ get-debloated-pkgs --add-common --prefer-nano
 
 echo "Getting app for G-Diffuser..."
 echo "---------------------------------------------------------------"
-wget -q https://github.com/Zorkats/G-Diffuser/releases
-mkdir -p ./AppDir/bin
-tar -xvzf ./G-Diffuser-v1.0.1-linux-x64.tar.gz -C ./AppDir/bin
-rm ./G-Diffuser-v1.0.1-linux-x64.tar.gz
+
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #

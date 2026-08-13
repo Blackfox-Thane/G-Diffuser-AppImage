@@ -1,12 +1,9 @@
 [Desktop Entry]
-StartupWMClass=G-Diffuser
-Name=G-Diffuser
 Type=Application
-Terminal=false
+Name=G-Diffuser
+Comment="A native PC port of F-Zero X (N64), including 64DD Expansion Kit support."
 Icon=gdiffuser-icon
 Exec=G-Diffuser
-GenericName=G-Diffuser
+Terminal=false
+StartupWMClass=G-Diffuser
 Categories=Game;
-X-AppImage-Name=G-Diffuser
-X-AppImage-Version=v1.0.1
-X-AppImage-Arch=x86_64

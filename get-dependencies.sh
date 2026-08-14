@@ -9,7 +9,6 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
   cmake \
   ninja \
-  clang \
   python \
   sdl2 \
   glew \
@@ -18,9 +17,6 @@ pacman -Syu --noconfirm \
   libzip \
   nlohmann-json \
   tinyxml2 \
-  python3 \
-  python-pyyaml \
-  python-pillow \
   spdlog
 
 echo "Installing debloated packages..."
@@ -28,7 +24,7 @@ echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
-# sudo ./make-aur-package zenity-rs-bin
+make-aur-package zenity-rs-bin
 
 # If the application needs to be manually built that has to be done down here
 
@@ -47,8 +43,6 @@ cmake -S . \
   -Bbuild/x64-linux \
   -GNinja \
   -DCMAKE_BUILD_TYPE=Release
-
-# cmake --build build/x64-linux --target include/assets
 
 cmake --build build/x64-linux --target G-Diffuser
 

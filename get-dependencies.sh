@@ -7,20 +7,20 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-  bzip2			    \
-  cmake			    \
-  fmt			      \
-  gcc			      \
-  glew			    \
-  libdecor		  \
-  libzip		    \
-  ninja			    \
+  bzip2	\
+  cmake	\
+  fmt \
+  gcc	\
+  glew \
+  libdecor \
+  libzip \
+  ninja	\
   nlohmann-json	\
-  python		    \
-  sdl2			    \
-  sdl2_net		  \
-  spdlog		    \
-  tinyxml2		  \
+  python \
+  sdl2 \
+  sdl2_net \
+  spdlog \
+  tinyxml2 \
   zlib
 
 echo "Installing debloated packages..."

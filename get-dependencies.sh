@@ -36,7 +36,7 @@ echo "Getting app for G-Diffuser..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/Zorkats/G-Diffuser"
 VERSION="$(git ls-remote --tags --sort="v:refname" "$REPO" | tail -n1 | sed 's/.*\///; s/\^{}//')"
-git clone --recursive "$REPO" ./G-Diffuser
+git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO" ./G-Diffuser
 echo "$VERSION" > ~/version
 
 mkdir -p AppDir/bin
@@ -47,8 +47,6 @@ cmake -S . \
   -Bbuild/x64-linux \
   -GNinja \
   -DCMAKE_BUILD_TYPE=Release
-
-# cmake --build build/x64-linux --target include/assets
 
 cmake --build build/x64-linux --target G-Diffuser
 

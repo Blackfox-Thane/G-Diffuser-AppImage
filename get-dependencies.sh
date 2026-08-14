@@ -48,7 +48,7 @@ cmake -S . -Bbuild/x64-linux  \
 -DASSET_VERSION=us \
 -DEXPANSION_KIT=1
 
-cmake --build build/x64-linux --target assets
+# cmake --build build/x64-linux --target assets
 
 cmake --build build/x64-linux --target G-Diffuser
 

@@ -8,6 +8,8 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
   cmake \
+  ninja \
+  gcc \
   python \
   sdl2 \
   glew \

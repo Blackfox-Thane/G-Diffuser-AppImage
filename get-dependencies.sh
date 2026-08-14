@@ -18,6 +18,7 @@ pacman -Syu --noconfirm \
   libzip \
   nlohmann-json \
   tinyxml2 \
+  python3 \
   python-pyyaml \
   python-pillow \
   spdlog

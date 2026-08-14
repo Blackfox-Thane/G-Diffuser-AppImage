@@ -7,18 +7,21 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-  cmake \
-  ninja \
-  gcc \
-  python \
-  sdl2 \
-  glew \
-  zlib \
-  bzip2 \
-  libzip \
-  nlohmann-json \
-  tinyxml2 \
-  spdlog
+  bzip2			    \
+  cmake			    \
+  fmt			      \
+  gcc			      \
+  glew			    \
+  libdecor		  \
+  libzip		    \
+  ninja			    \
+  nlohmann-json	\
+  python		    \
+  sdl2			    \
+  sdl2_net		  \
+  spdlog		    \
+  tinyxml2		  \
+  zlib
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -44,6 +47,8 @@ cmake -S . \
   -Bbuild/x64-linux \
   -GNinja \
   -DCMAKE_BUILD_TYPE=Release
+
+# cmake --build build/x64-linux --target include/assets
 
 cmake --build build/x64-linux --target G-Diffuser
 

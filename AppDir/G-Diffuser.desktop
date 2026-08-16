@@ -7,3 +7,6 @@ Exec=G-Diffuser
 Terminal=false
 StartupWMClass=G-Diffuser
 Categories=Game;
+X-AppImage-Name=G-Diffuser
+X-AppImage-Version=1.0.1
+X-AppImage-Arch=x86_64

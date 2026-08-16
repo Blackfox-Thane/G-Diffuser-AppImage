@@ -3,7 +3,7 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(wget -qO- https://github.com/Zorkats/G-Diffuser/releases | awk '{print $2; exit}') # example command to get version of application here
+VERSION=$(wget -qO- https://api.github.com/repos/Zorkats/G-Diffuser/releases/latest | awk '{print $2; exit}') # example command to get version of application here
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.hook"

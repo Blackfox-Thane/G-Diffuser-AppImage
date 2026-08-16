@@ -51,6 +51,14 @@ cmake -S . \
 
 cmake --build build/x64-linux --target G-Diffuser
 
+mv -v build/x64-linux/port/decomp-recipes ../AppDir/bin
+mv -v build/x64-linux/port/fonts ../AppDir/bin
+mv -v build/x64-linux/port/G-Diffuser ../AppDir/bin
+mv -v build/x64-linux/port/gdx-extract ../AppDir/bin
+mv -v build/x64-linux/port/gdiffuser.o2r ../AppDir/bin
+wget -O ../AppDir/bin/gamecontrollerdb.txt https://raw.githubusercontent.com/mdqinc/SDL_GameControllerDB/master/gamecontrollerdb.txt
+cp -v assets/branding/gdiffuser-icon.png ../AppDir/.DirIcon
+mv -v assets/branding/gdiffuser-icon.png ../AppDir/gdiffuser.png
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #
 # if [ "${DEVEL_RELEASE-}" = 1 ]; then

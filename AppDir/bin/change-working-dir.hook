@@ -1,11 +1,14 @@
 #!/bin/sh
-dir=$DATADIR/gdiffuser
-mkdir -p "$dir"
-cd "$dir"
+export SHIP_HOME="${SHIP_HOME:-$DATADIR/gdiffuser}"
+mkdir -p "$SHIP_HOME"
 
-for f in gdiffuser.o2r decomp-recipes gamecontrollerdb.txt ; do
-	f="$APPDIR"/bin/"$f" 
-	if [ -e "$f" ]; then
-		cp -af "$f" ./
-	fi
-done
+# dir=$DATADIR/gdiffuser
+# mkdir -p "$dir"
+# cd "$dir"
+
+# for f in gdiffuser.o2r decomp-recipes gamecontrollerdb.txt ; do
+# 	f="$APPDIR"/bin/"$f" 
+# 	if [ -e "$f" ]; then
+# 		cp -af "$f" ./
+# 	fi
+# done
